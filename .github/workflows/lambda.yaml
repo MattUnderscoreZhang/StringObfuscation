@@ -7,7 +7,7 @@ jobs:
       - name: Create Zip File
         uses: montudor/action-zip@v1
         with:
-          args: zip -r unicode_obfuscator.zip .
+          args: zip -r unicode_obfuscator.zip . -i .
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
