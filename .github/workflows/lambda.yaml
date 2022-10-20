@@ -10,9 +10,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Create Zip File
-        uses: montudor/action-zip@v1
+        uses: vimtor/action-zip@v1
         with:
-          args: zip -r unicode_obfuscator.zip . -i .
+          files: obfuscator.py lambda_function.py
+          dest: unicode_obfuscator.zip
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
