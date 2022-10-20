@@ -1,0 +1,11 @@
+name: Push to Lambda
+on: [push]
+jobs:
+  PushToLambda:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Creating zip file."
+      - run: zip -r unicode_obfuscator.zip .
+      - run: echo "Pushing to AWS Lambda."
+      - run: aws lambda update-function-code --function-name unicode_obfuscator --zip-file fileb://unicode_obfuscator.zip
+      - run: echo "Finished."
