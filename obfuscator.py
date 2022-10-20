@@ -37,7 +37,8 @@ def obfuscate_string(string: str) -> str:
     else:
         string, extension = string, None
     # add random empty unicode chars
-    random_bools = [random.choice([True, False]) for _ in range(len(string))]
+    whitespace_chance = 0.05
+    random_bools = [random.random() < whitespace_chance for _ in range(len(string))]
     if sum(random_bools) == 0:
         random_bools[0] = True
     for i in range(len(string)):
