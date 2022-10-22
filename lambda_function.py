@@ -7,9 +7,11 @@ def lambda_handler(event, context) -> dict[str, Any]:
     return {
         'statusCode': 200,
         'headers': {
-            'Access-Control-Allow-Headers': 'origin, content-type, accept',
+            'Access-Control-Allow-Headers': '*',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': 'GET'
+            'Access-Control-Allow-Methods': '*',
+            'Accept': '*/*',
+            'Content-Type': 'application/json'
         },
         'body': obfuscated_string
     }
