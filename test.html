@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Test</title>
+        <script>
+            async function test() {
+                const url = "https://kvywb88030.execute-api.us-east-1.amazonaws.com/default/"
+                var input = document.getElementById("input").value;
+                const params = {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({input: input})
+                };
+                const result = await fetch(url, params);
+                const data = await result.json();
+                document.getElementById("output").innerHTML = data.body;
+            };
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelector("button").addEventListener("click", test);
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            <textarea id="input" rows="4" cols="50">Enter text to obfuscate here.</textarea>
+            <br>
+            <button type="button">Submit</button>
+            <br>
+            <textarea id="output" rows="4" cols="50" readonly>Output</textarea>
+        </form>
+    </body>
+</html>
